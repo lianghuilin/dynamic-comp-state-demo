@@ -6,9 +6,9 @@
     }"
   >
     <template
-      v-if="dataset && dataset.paramList && dataset.paramList.length > 0"
+      v-if="notEmpty"
     >
-      <div v-for="param in dataset.paramList" :key="param.id">
+      <div v-for="param in paramList" :key="param.id">
         {{ param.key }}: {{ param.value }}
       </div>
     </template>
@@ -27,15 +27,30 @@ export default {
       type: Object,
     },
   },
+  computed: {
+    notEmpty(){
+      return this.dataset && this.dataset.threshold
+    },
+    paramList(){
+      let resultList = []
+      Object.keys(this.dataset.threshold).forEach(key => {
+        resultList.push({
+          key,
+          value: this.dataset.threshold[key],
+        })
+      })
+      return resultList
+    }
+  }
 };
 </script>
 
 <style scoped>
 .bar {
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border: 1px solid brown;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 </style>

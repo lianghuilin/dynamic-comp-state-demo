@@ -1,18 +1,18 @@
 <template>
-  <div>
+  <div data-key="threshold">
     <slot v-bind="dataset"></slot>
   </div>
 </template>
 
 <script>
-import { createNamespacedHelpers } from 'vuex';
+import { createNamespacedHelpers } from "vuex";
 
-const { mapState } = createNamespacedHelpers('threshold');
+const { mapState } = createNamespacedHelpers("threshold");
 
 export default {
-  name: 'thresholdDS',
+  name: "thresholdDS",
   computed: {
-    ...mapState(['threshold']),
+    ...mapState(["threshold"]),
     dataset() {
       return {
         threshold: this.threshold,

@@ -5,21 +5,22 @@
       ...config.options,
     }"
   >
-    <!-- <component :is="`${config.dataset}`" v-bind="config" >
-      <template slot-scope="dataset">
-        dataset: {{ dataset.dataList }}
-      </template>
-    </component> -->
-    <div
-      v-if="dataset && dataset.dataList && dataset.dataList.length > 0"
-    ></div>
-    <div>暂无数据</div>
+    <template v-if="notEmpty">
+      <div class="item" v-for="(item, i) in dataList" :key="item.name">
+        <div>
+          <span>{{i + 1}}-</span>
+          <span>{{ item.name }}</span>
+        </div>
+        <span>{{ item.count }} / {{ item.ratio }}%</span>
+      </div>
+    </template>
+    <div v-else>暂无数据</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'card',
+  name: "card",
   props: {
     config: {
       type: Object,
@@ -28,6 +29,14 @@ export default {
       type: Object,
     },
   },
+  computed: {
+    notEmpty(){
+      return this.dataset && this.dataset.dataList && this.dataset.dataList.length > 0
+    },
+    dataList(){
+      return this.dataset.dataList
+    }
+  }
 };
 </script>
 
@@ -35,8 +44,15 @@ export default {
 .card {
   position: absolute;
   border: 1px solid #ccc;
+  overflow-y: scroll;
+  padding: 0 10px;
+}
+
+.item {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 25px;
+  line-height: 25px;
+  justify-content: space-between;
+  width: 100%;
 }
 </style>

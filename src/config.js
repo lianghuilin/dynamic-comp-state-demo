@@ -5,7 +5,7 @@ export default [
     type: 'realtimeCity',
     dataset: 'realtimeCityDS',
     options: {
-      width: '200px',
+      width: '300px',
       height: '100px',
       top: '10px',
       left: '100px',

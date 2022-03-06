@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <!-- 遍历配置，用数据层组件，套通用组件 -->
+    <!-- 数据适配器层 -->
     <component
       v-for="config in configList"
       :key="config.id"
@@ -8,6 +8,7 @@
       :config="config"
     >
       <template slot-scope="dataset">
+        <!-- 通用组件 -->
         <component :is="config.component" :config="config" :dataset="dataset"></component>
       </template>
     </component>
@@ -17,15 +18,14 @@
 <script>
 import configList from '../config';
 import CompFactory from '../components';
-import DatasetFactory from '../dataset';
+import AdapterFactory from '../dataset-adapter';
 
 const components = {};
 configList.forEach((config) => {
   const { component: componentKey, dataset } = config;
   components[componentKey] = CompFactory(componentKey);
-  components[dataset] = DatasetFactory(dataset);
+  components[dataset] = AdapterFactory(dataset);
 });
-console.log('components', components);
 
 export default {
   name: 'Home',
