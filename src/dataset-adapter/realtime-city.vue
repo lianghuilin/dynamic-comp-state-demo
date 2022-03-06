@@ -1,5 +1,5 @@
 <template>
-  <div data-key="realtime-city">
+  <div data-key="adapter-realtime-city">
     <slot v-bind="dataset"></slot>
   </div>
 </template>

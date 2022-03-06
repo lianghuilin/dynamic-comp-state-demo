@@ -1,9 +1,9 @@
-import realtimeCityDS from './realtime-city.vue';
-import thresholdDS from './threshold.vue';
+import realtimeCity from './realtime-city.vue';
+import threshold from './threshold.vue';
 
 export default function (ds) {
   return {
-    realtimeCityDS,
-    thresholdDS,
+    realtimeCity,
+    threshold,
   }[ds];
 }

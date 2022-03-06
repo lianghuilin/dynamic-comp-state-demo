@@ -1,5 +1,5 @@
 <template>
-  <div data-key="threshold">
+  <div data-key="adapter-threshold">
     <slot v-bind="dataset"></slot>
   </div>
 </template>

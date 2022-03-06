@@ -2,10 +2,9 @@ export default [
   {
     id: '56d53588-9ba5-11ec-b909-0242ac120002',
     component: 'card',
-    type: 'realtimeCity',
-    dataset: 'realtimeCityDS',
+    dataset: 'realtimeCity',
     options: {
-      width: '300px',
+      width: '200px',
       height: '100px',
       top: '10px',
       left: '100px',
@@ -14,8 +13,7 @@ export default [
   {
     id: '5fa37904-9ba5-11ec-b909-0242ac120002',
     component: 'bar',
-    type: 'threshold',
-    dataset: 'thresholdDS',
+    dataset: 'threshold',
     options: {
       width: '500px',
       height: '30px',
