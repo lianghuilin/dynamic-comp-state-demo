@@ -8,7 +8,7 @@
     <template v-if="notEmpty">
       <div class="item" v-for="(item, i) in dataList" :key="item.name">
         <div>
-          <span>{{i + 1}}-</span>
+          <span>{{ i + 1 }}-</span>
           <span>{{ item.name }}</span>
         </div>
         <span>{{ item.count }} / {{ item.ratio }}%</span>
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: "card",
+  name: 'card',
   props: {
     config: {
       type: Object,
@@ -30,13 +30,17 @@ export default {
     },
   },
   computed: {
-    notEmpty(){
-      return this.dataset && this.dataset.dataList && this.dataset.dataList.length > 0
+    notEmpty() {
+      return (
+        this.dataset &&
+        this.dataset.dataList &&
+        this.dataset.dataList.length > 0
+      );
     },
-    dataList(){
-      return this.dataset.dataList
-    }
-  }
+    dataList() {
+      return this.dataset.dataList;
+    },
+  },
 };
 </script>
 
